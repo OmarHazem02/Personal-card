@@ -1,0 +1,210 @@
+/* css reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* end css reset */
+
+body {
+  background-color: #e5e5f7;
+  background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-size: 10px 10px;
+  font-family: "Jost", sans-serif;
+}
+.lights * {
+  filter: none;
+  width: 130%;
+}
+.lights {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 2;
+  top: 0rem;
+}
+.bulb-odd {
+  animation: party 0.5s infinite alternate;
+}
+.bulb-even {
+  animation: party 0.5s infinite alternate-reverse;
+}
+@keyframes party {
+  from {
+    fill: #ff0000;
+  }
+  to {
+    fill: #fff500;
+  }
+}
+body:has(.light-input:checked) .lights {
+  opacity: 1;
+  visibility: visible;
+}
+.light-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 4rem;
+  left: 45%;
+}
+.light-label {
+  width: 3rem;
+  height: 1.2rem;
+  border-radius: 1.5rem;
+  background-color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.2rem 0.3rem;
+}
+.light-label::after {
+  content: "";
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.light-input {
+  display: none;
+}
+
+.light-input:checked + .light-label {
+  background-color: white;
+}
+.light-input:checked + .light-label::after {
+  background-color: blue;
+  transform: translateX(1.8rem);
+}
+.light-control p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.container {
+  margin: 0 auto;
+  margin-top: 10%;
+  width: 30rem;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.card-img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.profile-pic {
+  border-radius: 50%;
+  width: 25%;
+  outline: 6px solid white;
+  display: block;
+  margin: 0 auto;
+  margin-top: -80px;
+}
+
+.name {
+  margin-top: 1rem;
+  font-size: 4rem;
+  text-align: center;
+}
+.speciality {
+  margin-top: -5px;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.social-media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.social-media-link {
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 1rem;
+  text-align: center;
+}
+.social-media :nth-child(3) {
+  border-right: 0;
+}
+.social-media-icon {
+  width: 1.2rem;
+  margin-right: 0.3rem;
+}
+/* responsive */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    margin-top: 50%;
+  }
+  .name {
+    font-size: 3rem;
+  }
+  .social-media-link {
+    padding: 20px 3px;
+  }
+  .profile-pic {
+    margin-top: -2rem;
+  }
+  .light-control {
+    transform: translate(-100%, -90%);
+  }
+  .lights {
+    transform: translate(10%, -250%);
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    margin-top: 20%;
+  }
+  .name {
+    font-size: 3rem;
+  }
+  .social-media-link {
+    padding: 20px 3px;
+  }
+  .profile-pic {
+    margin-top: -2rem;
+  }
+  .light-control {
+    transform: translate(-20%, -10%);
+  }
+  .lights {
+    transform: translate(-40%, -5%);
+    width: 200%;
+  }
+}
+
+@media (max-width: 1420px) {
+  .container {
+    width: 90%;
+    margin-top: 20%;
+  }
+  .name {
+    font-size: 3rem;
+  }
+  .social-media-link {
+    padding: 20px 3px;
+  }
+  .profile-pic {
+    margin-top: -2rem;
+  }
+  .light-control {
+    transform: translate(-20%, -10%);
+  }
+  .lights {
+    transform: translate(-40%, -5%);
+    width: 200%;
+  }
+}
